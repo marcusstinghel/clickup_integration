@@ -1,0 +1,8 @@
+#Ignora venv
+venv/
+
+#Ignora pycache
+scripts/__pycache__/
+
+#Ignora csv
+csv/csv.csv
