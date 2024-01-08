@@ -1,8 +1,8 @@
+#Ignora config
+config/apollo/config.json
+
 #Ignora venv
 venv/
-
-#Ignora pycache
-scripts/__pycache__/
 
 #Ignora csv
 csv/csv.csv
