@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
-from .task import Task
+from src.pkgs.clickup.list.models.response import Task
 
 
 class ResponseGet(BaseModel):

@@ -4,7 +4,7 @@ from datetime import datetime
 import classes as cs
 import os
 
-token = 'pk_3249047_FG83KQ8W65G06FA7H89DO7HPFL1RRZQ2'
+token = ''
 gdp = '900700204280'
 csv_path = 'C:\PDI\Repositorio\ClickUp\CSV\data.csv'
 
@@ -32,13 +32,13 @@ for page in tasks:
             except: task_dados['data_final'] = ''
             try: task_dados['data_conclusao'] = datetime.fromtimestamp(int(task['date_closed']) / 1000).strftime('%Y-%m-%d %H:%M:%S')
             except: task_dados['data_conclusao'] = ''
-            try: task_dados['diretoria'] = task['checklists'][0]['items'][0]['name']
+            try: task_dados['diretoria'] = task['checklists'][0]['objects'][0]['name']
             except: pass
-            try: task_dados['produto'] = task['checklists'][0]["items"][1]["name"]
+            try: task_dados['produto'] = task['checklists'][0]["objects"][1]["name"]
             except: pass
-            try: task_dados['tipo_atividade'] = task['checklists'][0]['items'][4]['name']
+            try: task_dados['tipo_atividade'] = task['checklists'][0]['objects'][4]['name']
             except: pass
-            try: card_data_conclusao_real = task['checklists'][0]['items'][5]['name']
+            try: card_data_conclusao_real = task['checklists'][0]['objects'][5]['name']
             except: pass
             try:
                 if card_data_conclusao_real == 'SEM DATA': task_dados['data_conclusao_real'] = ''
