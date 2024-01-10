@@ -1,1 +1,1 @@
-from list import ListRequests
+from .requests import Requests

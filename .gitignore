@@ -1,5 +1,11 @@
 #Ignora config
-src/config/apollo/config.json
+config.json
+
+#Ignora .env
+.env
+
+#Ignora arquivo de Log
+log.txt
 
 #Ignora venv
 venv/
