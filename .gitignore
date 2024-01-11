@@ -11,4 +11,4 @@ log.txt
 venv/
 
 #Ignora csv
-csv/csv.csv
+csv/data.csv

@@ -1,9 +1,10 @@
 import logging as log
 from src.config import Env, Log
-from src.pkgs.clickup import Requests
+from src.pkgs.clickup import Requests, Task
+from src.pkgs.csv import File
 
 
-class ClickupCards2Consinco:
+class ClickupCards2Csv:
 
     def __init__(self):
         Log.configurator()
@@ -11,23 +12,18 @@ class ClickupCards2Consinco:
         self.__requests = Requests()
 
     def run(self) -> None:
-        cards: list = self.__get_cards()
-        self.__csv_inserter(cards=cards)
-
-    def __csv_inserter(self, cards: list) -> None:
-        pass
-
-    def __get_cards(self) -> list:
-        all_cards: list = []
+        log.info('Iníciando execução')
+        csv_file = File(path='csv/data.csv')
+        all_cards: int = 0
         for gdp in self.__requests.gdps:
-            minimum_cards_per_request: int = 1
-            page: int = 0
             log.info(f'gdp: {gdp}')
-            while minimum_cards_per_request > 0:
-                request_cards = self.__requests.list.get(list_id=gdp, page=page)
-                minimum_cards_per_request = len(request_cards.tasks)
-                all_cards.extend(card for card in request_cards.tasks)
-                log.info(f'page: {page}, quantidade: {minimum_cards_per_request}')
+            cards_per_request: int = 100
+            page: int = 0
+            while cards_per_request >= 100:
+                cards: list[Task] = self.__requests.list.get(list_id=gdp, page=page).tasks
+                log.info(f'page: {page}, quantidade: {len(cards)}')
+                csv_file.insert_cards_pack(cards=cards)
+                cards_per_request = len(cards)
+                all_cards += cards_per_request
                 page += 1
-        log.info(f'quantidade de cards total: {len(all_cards)}')
-        return all_cards
+        log.info(f'quantidade de cards total: {all_cards}')
