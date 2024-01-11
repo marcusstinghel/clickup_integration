@@ -32,7 +32,7 @@ class DataFrameModel:
             datetime.fromtimestamp(int(card.start_date) / 1000) if card.start_date else '',
             datetime.fromtimestamp(int(card.due_date) / 1000) if card.due_date else '',
             datetime.fromtimestamp(int(card.date_closed) / 1000) if card.date_closed else '',
-            card.checklists[0].name if card.checklists else '',
+            card.checklists[0].items[0].name if card.checklists and card.checklists[0].items else '',
             card.checklists[0].items[1].name if card.checklists and card.checklists[0].items else '',
             card.checklists[0].items[4].name if card.checklists and card.checklists[0].items else '',
             card.checklists[0].items[5].name if card.checklists and card.checklists[0].items else ''
