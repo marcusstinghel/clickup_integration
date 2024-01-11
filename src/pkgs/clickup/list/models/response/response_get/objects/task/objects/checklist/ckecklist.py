@@ -5,4 +5,4 @@ from .objects import Item
 
 class Checklist(BaseModel):
     name: str = Field(default=None, alias='name')
-    items: List[Item] = Field(default=None, alias='objects')
+    items: List[Item] = Field(default=None, alias='items')
