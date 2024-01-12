@@ -19,3 +19,7 @@ class ClickupConfig:
     def gdps(self) -> List[int]:
         gdps: dict = self.__config['gdps']
         return [gdp for gdp in gdps.values()]
+
+    @property
+    def subtasks(self) -> bool:
+        return self.__config['subtasks']

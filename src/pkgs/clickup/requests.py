@@ -6,6 +6,7 @@ class Requests:
     def __init__(self):
         self.__config = ClickupConfig()
         self.__gdps = self.__config.gdps
+        self.__subtasks = self.__config.subtasks
 
     @property
     def gdps(self) -> list:
@@ -13,4 +14,4 @@ class Requests:
 
     @property
     def list(self):
-        return List(url_base=self.__config.url_base, api_token=self.__config.api_token)
+        return List(url_base=self.__config.url_base, api_token=self.__config.api_token, subtasks=self.__subtasks)

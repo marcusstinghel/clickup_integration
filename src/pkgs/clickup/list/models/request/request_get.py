@@ -1,7 +1,8 @@
 class RequestGet:
-    def __init__(self, url_base: str, api_token: str, list_id: int, page: int = 0) -> None:
+    def __init__(self, url_base: str, api_token: str, subtasks: bool, list_id: int, page: int = 0) -> None:
         self.__url_base = url_base
         self.__auth = api_token
+        self.__subtasks = subtasks
         self.__list_id = list_id
         self.__page = page
 
@@ -15,4 +16,7 @@ class RequestGet:
 
     @property
     def params(self) -> dict:
-        return {'page': {self.__page}, 'include_closed': 'true', 'subtasks': 'true'}
+        params = {'page': self.__page, 'include_closed': 'true'}
+        if self.__subtasks:
+            params['subtasks'] = 'true'
+        return params
