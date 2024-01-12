@@ -39,7 +39,7 @@ class DataFrameModel:
             items[1].name if len(items) >= 2 else default,
             items[4].name if len(items) >= 5 else default,
             (
-                dt.strptime(items[5].name, "%d/%m/%Y").strftime("%Y-%m-%d")
+                dt.strptime(items[5].name, "%d/%m/%Y").strftime("%Y-%m-%d %H:%M:%S.%f")
                 if len(items) >= 6
                 and re.match(r'\d{2}/\d{2}/\d{4}', items[5].name)
                 else default
