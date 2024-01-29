@@ -1,14 +1,14 @@
-#Ignora config
+#Ignore config
 config.json
 
-#Ignora .env
+#Ignore .env
 .env
 
-#Ignora arquivo de Log
+#Ignore arquivo de Log
 log.txt
 
-#Ignora venv
+#Ignore venv
 venv/
 
-#Ignora csv
+#Ignore csv
 csv/data.csv

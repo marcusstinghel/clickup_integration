@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 from .data_frame_model import DataFrameModel
 from src.pkgs.clickup import Task
