@@ -12,3 +12,6 @@ venv/
 
 #Ignore csv
 csv/data.csv
+
+# Ignore .idea
+.idea
